@@ -1,99 +1,61 @@
-body * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-:root{
+/* ===== VARIÁVEIS ===== */
+:root {
+  /* Cores */
   --text-color: white;
   --bg-url: url(./assets/bg-mobile.jpg);
   --stroke-color: rgba(255, 255, 255, 0.5);
   --surface-color: rgba(255, 255, 255, 0.5);
   --surface-color-hover: rgba(0, 0, 0, 0.02);
   --highlight-color: rgba(255, 255, 255, 0.2);
+
+  --link-color: white;
+  
+  /* Ícones */
+  --icon-fill: rgb(255, 255, 255);
+  --icon-hover: #0dbd47;
+  --twitch-icon-fill: white;
+  
+  /* Switch */
   --switch-bg-url: url(./assets/MoonStars.svg);
-
-   /* Nova variável para o ícone Twitch */
-   --twitch-icon-fill: white;
-
-
-   /*teste 2 root*/
-
-   
-    /* Cores existentes... */
-    --text-color: white;
-    --bg-url: url(./assets/bg-mobile.jpg);
-    /* ... outras variáveis que você já tem ... */
-  
-    /* Novas variáveis para ícones */
-    --icon-fill: rgb(255, 255, 255); /* Cor padrão (dark mode) */
-    --icon-hover: #0dbd47; /* Roxo da Twitch (ou escolha outra cor) */
-  
-
-
-
-
 }
 
-.light{
+.light {
   --text-color: black;
   --bg-url: url(./assets/bg-mobile-light.jpg);
-  --stroker-color: rgba(0, 0, 0, 0.5);
+  --stroke-color: rgba(0, 0, 0, 0.5);
   --surface-color: rgba(0, 0, 0, 0.05);
-  --surface-color-hover: rgba(0, 0, 0, 0.02); /* olhar */
+  --surface-color-hover: rgba(0, 0, 0, 0.02);
   --highlight-color: rgba(0, 0, 0, 0.1);
+  --icon-fill: black;
+  --twitch-icon-fill: black;
   --switch-bg-url: url(./assets/Sun.svg);
 
-   /* Altera a cor do ícone para preto no light mode */
-   --twitch-icon-fill: black;
 
+  --link-color: rgb(0, 0, 0);
 }
-   /*teste 2 ligth*/
-   .light {
-    /* Cores existentes... */
-    --text-color: black;
-    /* ... outras variáveis light mode ... */
-  
-    /* Atualiza ícones para light mode */
-    --icon-fill: black;
-    --icon-hover: #9147ff; /* Pode manter o mesmo hover ou mudar */
-  }
+
+/* ===== RESET E ESTILOS GERAIS ===== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
 body {
-  background-image: var(--bg-url);
-  background-repeat: no-repeat;
-  background-position: top center;
-  background-size: cover;
-
-  /*  Como deixar tudo em uma linha só
-    background: color image repeat position/size */
-
-
-  
-}
-
-body * {
+  background: var(--bg-url) no-repeat top center/cover;
   font-family: "Inter", sans-serif;
   color: var(--text-color);
 }
+
+/* ===== LAYOUT PRINCIPAL ===== */
 #container {
   width: 100%;
   max-width: 588px;
-
-
-  padding-top: 56px;
-  padding: 0px 24px;
-
-
-  margin-right: auto;
-  margin-bottom: auto;
-  margin-left: auto;
-
-  margin: 50px auto 0px;
+  padding: 56px 24px 0;
+  margin: 50px auto 0;
 }
 
-
-/*profile */
+/* ===== PERFIL ===== */
 #profile {
   text-align: center;
   padding: 24px;
@@ -101,55 +63,47 @@ body * {
 
 #profile img {
   width: 112px;
+  border-radius: 50%;
 }
 
 #profile p {
-  font-weight: 500px;
+  font-weight: 500;
   font-size: 20px;
   line-height: 24px;
   margin-top: 8px;
 }
-/* Switch */
+
+/* ===== SWITCH DE TEMA ===== */
 #switch {
-  
   position: relative;
   width: 64px;
-
   margin: 4px auto;
 }
 
-
-#switch button{
+#switch button {
   width: 32px;
   height: 32px;
   background: white var(--switch-bg-url) no-repeat center;
   border: 0;
   border-radius: 50%;
-
   position: absolute;
   top: 50%;
   left: 0;
   z-index: 1;
   transform: translateY(-50%);
   animation: slide-back 0.6s;
+  cursor: pointer;
 }
 
-.light #switch button{
+#switch button:hover {
+  outline: 8px solid var(--highlight-color);
+}
 
-  /*right: 0;
-  left: initial;*/
-
+.light #switch button {
   animation: slide-in 0.6s forwards;
-
 }
 
-#switch button:hover{
-outline: 8px solid var(--highlight-color)
-
-}
-
-
-#switch span{ 
+#switch span {
   display: block;
   width: 64px;
   height: 24px;
@@ -160,118 +114,93 @@ outline: 8px solid var(--highlight-color)
   border-radius: 9999px;
 }
 
-
-/*Links lista*/
-
-ul {
+/* ===== LINKS PRINCIPAIS ===== */
+#main-links {
   list-style: none;
   display: flex;
   flex-direction: column;
   gap: 16px;
-
-  padding: 24px 0px;
+  padding: 24px 0;
 }
 
-ul li a {
-  
-
+#main-links li a {
+  color: var(--link-color);
   display: flex;
   justify-content: center;
   align-items: center;
-
   padding: 16px 24px;
-
-  background: var(--surface-color-hover);  /*arrumado*/
+  background: var(--surface-color-hover);
   border: 1px solid var(--stroke-color);
   border-radius: 8px;
-  backdrop-filter: blur 4px;
-  -webkit-backdrop-filter: blur 4px;
-
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
   text-decoration: none;
   font-weight: 500;
-
   transition: background 0.2s;
-
 }
 
-/* pseudo-selector*/
-ul li a:hover {
-
-  background: var(--surface-color); /*arrumado*/
+#main-links li a:hover {
+  background: var(--surface-color);
   border: 1.5px solid var(--text-color);
-
 }
 
-/* Social Links*/
+/* ===== LINKS SOCIAIS ===== */
 #social-links {
   display: flex;
   justify-content: center;
-  
-
   padding: 24px 0;
   font-size: 24px;
-
+  gap: 16px;
 }
-#social-links a{
+
+#social-links a {
   display: flex;
   align-items: center;
   justify-content: center;
   padding: 16px;
-  transition: background 0.2;
+  transition: background 0.2s;
   border-radius: 50%;
 }
-#social-links a:hover{
-  background: var(--highlight-color);
 
+#social-links a:hover {
+  background: var(--highlight-color);
 }
 
-footer{
+#social-links svg {
+  width: 24px;
+  height: 24px;
+}
+
+/* ===== RODAPÉ ===== */
+footer {
   padding: 24px 0;
   text-align: center;
   font-size: 14px;
-
 }
 
+footer a {
+  text-decoration: none;
+  font-weight: 500;
+}
 
-/* Media queries */
+/* ===== ANIMAÇÕES ===== */
+@keyframes slide-in {
+  from { left: 0; }
+  to { left: 50%; }
+}
 
+@keyframes slide-back {
+  from { left: 50%; }
+  to { left: 0; }
+}
 
-
-/*
+/* ===== MEDIA QUERIES ===== */
 @media (min-width: 700px) {
   :root {
-    --bg-url: url (./assets/bg-desktop.jpg);
+    --bg-url: url(./assets/bg-desktop.jpg);
   }
 
   .light {
-    --bg-url: url (./assets/bg-desktop-ligth.jpg);
+    --bg-url: url(./assets/bg-desktop-light.jpg);
   }
-
-
 }
-
-*/
-
-
-
-
-/* animation */
-
-@keyframes slide-in {
-  from {
-    left: 0;
-  }
-  to {
-    left: 50%;
-  }
-} 
-
-
-@keyframes slide-back {
-  from {
-    left: 50%;
-  }
-  to {
-    left: 0;
-  }
-} 
