@@ -46,12 +46,14 @@ function tryUnlockAudio() {
             audio.volume = 1; // Restaura volume normal
             audioUnlocked = true;
         })
-        .catch(e => {
+
+
+        //.catch(e => {
             // Falha - mostra o botão de ativação
-            if (!document.getElementById('enable-audio-btn')) {
-                showEnableAudioButton();
-            }
-        });
+          //  if (!document.getElementById('enable-audio-btn')) {
+         //       showEnableAudioButton();
+         //   }
+        //});
 }
 
 // ===== Mostra botão de ativação =====
