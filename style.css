@@ -17,6 +17,20 @@ body * {
    --twitch-icon-fill: white;
 
 
+   /*teste 2 root*/
+
+   
+    /* Cores existentes... */
+    --text-color: white;
+    --bg-url: url(./assets/bg-mobile.jpg);
+    /* ... outras variáveis que você já tem ... */
+  
+    /* Novas variáveis para ícones */
+    --icon-fill: rgb(255, 255, 255); /* Cor padrão (dark mode) */
+    --icon-hover: #0dbd47; /* Roxo da Twitch (ou escolha outra cor) */
+  
+
+
 
 
 }
@@ -32,7 +46,18 @@ body * {
 
    /* Altera a cor do ícone para preto no light mode */
    --twitch-icon-fill: black;
+
 }
+   /*teste 2 ligth*/
+   .light {
+    /* Cores existentes... */
+    --text-color: black;
+    /* ... outras variáveis light mode ... */
+  
+    /* Atualiza ícones para light mode */
+    --icon-fill: black;
+    --icon-hover: #9147ff; /* Pode manter o mesmo hover ou mudar */
+  }
 
 body {
   background-image: var(--bg-url);
